@@ -1,0 +1,10 @@
+[PropertyInfo]
+destinations,Vector,false,false, , ,false,<default>
+editorPanelA,JPanel,false,false, , ,true,<default>
+slots,ModSlot[],false,false, , ,false,<default>
+sources,HashMap,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

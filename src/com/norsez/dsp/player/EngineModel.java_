@@ -1,0 +1,98 @@
+package dsp.player;
+
+import dsp.basic.*;
+import java.util.Date;
+import java.io.*;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2003</p>
+ * <p>Company: </p>
+ * @author unascribed
+ * @version 1.0
+ */
+
+public abstract class EngineModel extends Thread{
+  private int channels;
+  private SoundPlayback player;
+  protected static final int BUFFER_SIZE = 4096;
+  protected static final int PUT_SIZE = 512;
+  public final long startTime=new java.util.Date ().getTime();;
+  protected boolean playing;
+
+
+
+  public EngineModel (int numOfChannels){
+
+    player = new SoundPlayback ((float)DSPSystem.SYSTEM_SAMPLING_RATE, 16, numOfChannels, BUFFER_SIZE, PUT_SIZE);
+    channels = numOfChannels;
+    samples = new double [channels][PUT_SIZE];
+    playing = true;
+
+    try{
+      player.startPlayback();
+    }
+    catch (Exception e){e.printStackTrace();}
+
+  }
+
+  protected void setParameterSet (String [] names, double [] initValues, int [] displayModes){
+    parameters = new EngineParameter [names.length];
+     for (int i=0; i < parameters.length; i++){
+       parameters[i] = new EngineParameter ();
+       parameters[i].name = names [i];
+       parameters[i].setValue( initValues [i] );
+       parameters[i].mode = displayModes [i];
+     }
+  }
+/*
+  protected void setParameterSet ( String [] names, double [] values, double [][] tables){
+     parameters = new EngineParameter [names.length];
+     for (int i=0; i < parameters.length; i++){
+       parameters[i] = new EngineParameter ();
+       parameters[i].name = names [i];
+       parameters[i].table = tables [i];
+       parameters[i].setValue( values [i] );
+     }
+  }
+*/
+  public int getNumOfChannels (){
+    return channels;
+  }
+
+  protected double [][] samples;
+
+  public void run (){
+
+    while (playing){
+      process (samples);
+      try{
+        player.putSamples(samples);
+      }catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+  }
+
+  /*
+  * Create output by putting your DSP code in to process ();
+  *
+  */
+  public abstract void process (double [][] output);
+
+  public EngineParameter [] parameters;
+
+  public void setParameter (int index, double value){
+    try{
+
+      parameters[index].setValue(  value );
+
+    }catch (Exception oe){
+      oe.printStackTrace();
+    }
+  }
+
+
+
+}

@@ -1,0 +1,84 @@
+package dsp.player;
+import dsp.basic.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.event.*;
+import java.awt.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2003</p>
+ * <p>Company: </p>
+ * @author unascribed
+ * @version 1.0
+ */
+
+public class EngineEditor extends JPanel {
+  private final int SLIDER_SCALE = 500;
+  private EngineModel model;
+  private MySlider sliders [];
+  public EngineEditor(EngineModel model) {
+    this.model = model;
+    buildInterface ();
+  }
+
+  private void buildInterface (){
+    this.setLayout(new GridLayout(model.parameters.length,2));
+    SliderAction sla = new SliderAction ();
+    sliders = new MySlider  [model.parameters.length];
+    for (int i = 0; i < model.parameters.length; i++){
+      this.add(new JLabel (model.parameters[i].name));
+      sliders[i] = new MySlider (0,SLIDER_SCALE,(int)(model.parameters[i].getInternalValue() * SLIDER_SCALE));
+      sliders[i].tag = i;
+
+      sliders[i].addChangeListener(sla);
+      this.add(sliders[i]);
+
+    }
+
+  }
+
+  private class MySlider extends JSlider {
+    public int tag;
+    public boolean isExponential;
+
+    public MySlider ( int min, int max, int value){
+      super (min,max,value);
+    }
+  }
+
+  private class SliderAction implements ChangeListener {
+    public void stateChanged (ChangeEvent e ){
+      MySlider me = (MySlider)e.getSource();
+
+       model.parameters[me.tag].value  = (double)me.getValue() / me.getMaximum();
+       /*
+      if (model.parameters[me.tag].table != null){
+         model.parameters[me.tag].getInternalValue() =  model.parameters[me.tag].table[(int)( (model.parameters[me.tag].table.length-1) *
+              model.parameters[me.tag].value)];
+      }
+      else
+        model.parameters[me.tag].nvalue = model.parameters[me.tag].value;
+       */
+    }
+
+  }
+
+  public void addSliderAction ( int paramIndex , ChangeListener action){
+    sliders[paramIndex].addChangeListener(action);
+  }
+
+  public void updateSliders (){
+    for (int i = 0; i < model.parameters.length;i++){
+      sliders[i].setValue((int)(model.parameters[i].value * sliders[i].getMaximum()));
+    }
+  }
+
+
+
+  public static void main(String[] args) {
+
+
+    //EngineEditor engineEditor1 = new EngineEditor();
+  }
+}

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--JBuilder XML Project-->
+<project>
+  <property category="debug.0" name="SmartStepRedefineClasses" value="0"/>
+  <property category="debug.0" name="SmartStepSkipStaticInitializers" value="0"/>
+  <property category="debug.0" name="SmartStepSkipSynthetics" value="0"/>
+  <property category="javadoc" name="custom.tags.1" value="todo;a;To Do:"/>
+  <property category="optimize.0" name="OptimizableType" value="com.borland.jbuilder.optimize.IntroOptimizeitProfiler"/>
+  <property category="runtime" name="DefaultConfiguration" value="-1"/>
+  <property category="runtime.0" name="BuildTargetOnRun" value="com.borland.jbuilder.build.ProjectBuilder$ProjectBuildAction;make"/>
+  <property category="runtime.0" name="ConfigurationName" value="dsp.project.websynth.WebSynthApplet"/>
+  <property category="runtime.0" name="RunnableType" value="com.borland.jbuilder.runtime.AppletRunner"/>
+  <property category="runtime.0" name="applet.class" value="dsp.project.monolith.Monolith"/>
+  <property category="runtime.0" name="applet.html" value="classes/SM2Applet.html"/>
+  <property category="runtime.0" name="applet.parameters.1" value="model"/>
+  <property category="runtime.0" name="applet.values.1" value="RingSync"/>
+  <property category="runtime.0" name="applet.vmparameters" value="-Xm200m"/>
+  <property category="runtime.0" name="applet.width" value="470"/>
+  <property category="runtime.1" name="ConfigurationName" value="TestTesting"/>
+  <property category="runtime.1" name="RunnableType" value="com.borland.jbuilder.runtime.TestRunner"/>
+  <property category="runtime.1" name="test.class" value="dsp.test.TestTesting"/>
+  <property category="runtime.1" name="test.harness" value="com.borland.jbuilder.unittest.JBTestRunner"/>
+  <property category="serverservices" name="single.server.name" value="Tomcat 4.0"/>
+  <property category="sys" name="AuthorLabel" value="@author"/>
+  <property category="sys" name="Autorefresh" value="1"/>
+  <property category="sys" name="BackupPath" value="bak"/>
+  <property category="sys" name="BeansInstantiate" value="false"/>
+  <property category="sys" name="BraceStyle" value="0"/>
+  <property category="sys" name="CheckStable" value="1"/>
+  <property category="sys" name="Company" value="Norsez Orankijanan"/>
+  <property category="sys" name="CompanyLabel" value="Company:"/>
+  <property category="sys" name="Copyright" value="Copyright (c) 2004"/>
+  <property category="sys" name="CopyrightLabel" value="Copyright:"/>
+  <property category="sys" name="DefaultPath" value="src"/>
+  <property category="sys" name="Description" value=""/>
+  <property category="sys" name="DescriptionLabel" value="Description:"/>
+  <property category="sys" name="DocPath" value="doc"/>
+  <property category="sys" name="EventMatch" value="false"/>
+  <property category="sys" name="EventStyle" value="1"/>
+  <property category="sys" name="ExcludeClassEnabled" value="0"/>
+  <property category="sys" name="IncludeTestPath" value="1"/>
+  <property category="sys" name="InstanceVisibility" value="2"/>
+  <property category="sys" name="JDK" value="java version 1.4.2_01-b06"/>
+  <property category="sys" name="JvmVersion" value="1.4"/>
+  <property category="sys" name="LastTag" value="0"/>
+  <property category="sys" name="Libraries" value="JUnit"/>
+  <property category="sys" name="MakeStable" value="0"/>
+  <property category="sys" name="OutPath" value="classes"/>
+  <property category="sys" name="SourcePath" value="src;test"/>
+  <property category="sys" name="TestPath" value="test"/>
+  <property category="sys" name="Title" value=""/>
+  <property category="sys" name="TitleLabel" value="Title:"/>
+  <property category="sys" name="Version" value="1.0"/>
+  <property category="sys" name="VersionLabel" value="@version"/>
+  <property category="sys" name="WorkingDirectory" value="."/>
+  <property category="sys" name="max.package.levels" value="5"/>
+  <property category="team" name="ignorePath.0" value="bak"/>
+  <property category="team" name="ignorePath.1" value="classes"/>
+  <property category="team" name="ignorePath.10" value="Sami charge.pch"/>
+  <property category="team" name="ignorePath.11" value="synthtest.jar"/>
+  <property category="team" name="ignorePath.12" value="Wavetablity.pch"/>
+  <property category="team" name="ignorePath.13" value="debug.txt"/>
+  <property category="team" name="ignorePath.14" value="ml.txt"/>
+  <property category="team" name="ignorePath.15" value="monolith.jar"/>
+  <property category="team" name="ignorePath.16" value="Sync Sound.pch"/>
+  <property category="team" name="ignorePath.17" value="test.txt"/>
+  <property category="team" name="ignorePath.18" value="testsave.ini"/>
+  <property category="team" name="ignorePath.19" value="testsynth.jar"/>
+  <property category="team" name="ignorePath.2" value="doc"/>
+  <property category="team" name="ignorePath.20" value="ts.txt"/>
+  <property category="team" name="ignorePath.21" value="vssver.scc"/>
+  <property category="team" name="ignorePath.22" value="ws.txt"/>
+  <property category="team" name="ignorePath.23" value="simple arp.pch"/>
+  <property category="team" name="ignorePath.24" value="websynth.jar"/>
+  <property category="team" name="ignorePath.3" value="src/dsp/block/resources"/>
+  <property category="team" name="ignorePath.4" value="classes_BAK"/>
+  <property category="team" name="ignorePath.5" value="Copy of arp.ini"/>
+  <property category="team" name="ignorePath.6" value="Copy of testsave.ini"/>
+  <property category="team" name="ignorePath.7" value="Init.pch"/>
+  <property category="team" name="ignorePath.8" value="monolith.pch"/>
+  <property category="team" name="ignorePath.9" value="moupin spira.pch"/>
+  <node name="block" type="Folder">
+    <node name="envelope" type="Folder">
+      <file path="src/dsp/block/envelope/Envelope.java"/>
+      <file path="src/dsp/block/envelope/EnvelopeAD.java"/>
+      <file path="src/dsp/block/envelope/EnvelopeADSR.java"/>
+    </node>
+    <node name="filter" type="Folder">
+      <node name="effects" type="Folder">
+        <file path="src/dsp/block/filter/effects/Chorus.java"/>
+        <file path="src/dsp/block/filter/effects/DelayFBMono.java"/>
+        <file path="src/dsp/block/filter/effects/DelayFbStr.java"/>
+        <file path="src/dsp/block/filter/effects/DelayStepMono.java"/>
+        <file path="src/dsp/block/filter/effects/DelayTempoStereo.java"/>
+        <file path="src/dsp/block/filter/effects/Effect.java"/>
+        <file path="src/dsp/block/filter/effects/EQLowShelf.java"/>
+        <file path="src/dsp/block/filter/FatMoogFilter.java"/>
+        <file path="src/dsp/block/filter/effects/Phaser.java"/>
+        <file path="src/dsp/block/filter/effects/RingModulator.java"/>
+        <file path="src/dsp/block/filter/effects/Waveshaper.java"/>
+        <file path="src/dsp/block/filter/effects/WaveshaperOversampling.java"/>
+      </node>
+      <file path="src/dsp/block/filter/AGC.java"/>
+      <file path="src/dsp/block/filter/AllPassFilter.java"/>
+      <file path="src/dsp/block/filter/Delay.java"/>
+      <file path="src/dsp/block/filter/Filter.java"/>
+      <file path="src/dsp/block/filter/MoogFilter.java"/>
+      <file path="src/dsp/block/filter/SimpleFilter.java"/>
+      <file path="src/dsp/block/filter/SmoothingFilter.java"/>
+    </node>
+    <node name="modulation" type="Folder">
+      <file path="src/dsp/block/modulation/ModMatrix.java"/>
+      <file path="src/dsp/block/modulation/ModMatrixModel.java"/>
+      <file path="src/dsp/block/modulation/ModSource.java"/>
+      <file path="src/dsp/block/modulation/ModValue.java"/>
+    </node>
+    <node name="oscillator" type="Folder">
+      <node name="multimode" type="Folder">
+        <file path="src/dsp/block/oscillator/multimode/LFO.java"/>
+        <file path="src/dsp/block/oscillator/multimode/MultiModeOsc.java"/>
+        <file path="src/dsp/block/oscillator/multimode/OscA.java"/>
+        <file path="src/dsp/block/oscillator/multimode/OscMode.java"/>
+      </node>
+      <file path="src/dsp/block/oscillator/AntiAliasedWavetable.java"/>
+      <file path="src/dsp/block/oscillator/DigiWave.java"/>
+      <file path="src/dsp/block/oscillator/Noise.java"/>
+      <file path="src/dsp/block/oscillator/OSWavetable.java"/>
+      <file path="src/dsp/block/oscillator/SuperSaw.java"/>
+      <file path="src/dsp/block/oscillator/SyncableOscillator.java"/>
+      <file path="src/dsp/block/oscillator/SyncableOversampledOsc.java"/>
+      <file path="src/dsp/block/oscillator/Wavetable.java"/>
+    </node>
+    <node name="sequencer" type="Folder">
+      <file path="src/dsp/block/sequencer/Arpeggiator.java"/>
+      <file path="src/dsp/block/sequencer/ArpSwing.java"/>
+      <file path="src/dsp/block/sequencer/ArpSwingPoly.java"/>
+      <file path="src/dsp/block/sequencer/ClockSource.java"/>
+      <file path="src/dsp/block/sequencer/SampleClock.java"/>
+      <file path="src/dsp/block/sequencer/Seq303.java"/>
+    </node>
+    <file path="src/dsp/block/DSPBlock.java"/>
+    <file path="src/dsp/block/DSPBlockStereo.java"/>
+    <file path="src/dsp/block/DSPSystem.java"/>
+    <file path="src/dsp/block/Interpolation.java"/>
+    <file path="src/dsp/block/MixRatio.java"/>
+    <file path="src/dsp/block/Note.java"/>
+    <file path="src/dsp/block/Oversampler.java"/>
+    <file path="src/dsp/block/Table.java"/>
+  </node>
+  <node name="midi" type="Folder">
+    <file path="src/dsp/midi/MidiDeviceSelector.java"/>
+    <file path="src/dsp/midi/MidiDSPPort.java"/>
+    <file path="src/dsp/midi/MidiMonitor.java"/>
+  </node>
+  <node name="player" type="Folder">
+    <file path="src/dsp/player/Player16Bit.java"/>
+    <file path="src/dsp/player/Player16Bit2.java"/>
+    <file path="src/dsp/player/SoundPlayback.java"/>
+  </node>
+  <node name="project" type="Folder">
+    <node name="monolith" type="Folder">
+      <file path="src/dsp/project/monolith/Monolith.java"/>
+    </node>
+    <node name="websynth" type="Folder">
+      <file path="src/dsp/project/websynth/WebSynthApplet.java"/>
+    </node>
+  </node>
+  <node name="synth" type="Folder">
+    <node name="patch" type="Folder">
+      <file path="src/dsp/synth/patch/SimpleVoice.java"/>
+    </node>
+    <node name="Swing" type="Folder">
+      <file path="src/dsp/synth/swing/DraggerModel.java"/>
+      <file path="src/dsp/synth/swing/Kb2MidiModel.java"/>
+      <file path="src/dsp/synth/swing/N_Box.java"/>
+      <file path="src/dsp/synth/swing/N_Slider.java"/>
+      <file path="src/dsp/synth/swing/PresetBrowser.java"/>
+      <file path="src/dsp/synth/swing/SynthGroupedPanel.java"/>
+      <file path="src/dsp/synth/swing/SynthPanel.java"/>
+    </node>
+    <file path="src/dsp/synth/Parameter.java"/>
+    <file path="src/dsp/synth/ParameterDisplay.java"/>
+    <file path="src/dsp/synth/ParameterList.java"/>
+    <file path="src/dsp/synth/ParameterManager.java"/>
+    <file path="src/dsp/synth/SynthModel.java"/>
+    <file path="src/dsp/synth/SynthModel2.java"/>
+    <file path="src/dsp/synth/SynthModel3.java"/>
+    <file path="src/dsp/synth/VoiceManager.java"/>
+    <file path="src/dsp/synth/VoiceManagerPoly.java"/>
+    <file path="src/dsp/synth/VoiceModel.java"/>
+  </node>
+  <node name="test" type="Folder">
+    <file path="src/dsp/test/BlockTest.java"/>
+    <file path="src/dsp/test/EnumTest.java"/>
+    <file path="src/dsp/test/FuncTest.java"/>
+    <file path="src/dsp/test/SM2Applet.java"/>
+    <file path="src/dsp/test/SM2Test.java"/>
+    <file path="src/dsp/test/SM3Test.java"/>
+    <file path="src/dsp/test/SynthTester.java"/>
+    <file path="src/dsp/test/TestStaticClass.java"/>
+    <file path="src/dsp/test/TestTone.java"/>
+  </node>
+  <file path="classes/SM2Applet.html"/>
+</project>

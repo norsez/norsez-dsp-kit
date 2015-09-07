@@ -1,0 +1,81 @@
+package dsp.player;
+import dsp.basic.*;
+import java.text.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2002</p>
+ * <p>Company: Norsez Orankijanan</p>
+ * @author Norsez Orankijanan
+ * @version 1.0
+ */
+
+public class EngineParameter {
+
+  public double value;
+  public String name;
+  private double nvalue;
+  public double [] table;
+  public int mode; //display type
+  private static DecimalFormat dc;
+
+  public double getInternalValue (){
+    return nvalue;
+  }
+
+  public EngineParameter() {
+    dc = new DecimalFormat ( "0.000");
+  }
+
+  public void setValue (double v){
+    value = v;
+    setInternalValue (mode,this,v);
+  }
+
+  public String getDisplayValue (){
+    return getDisplayValue (mode,value);
+  }
+
+  public String toString (){
+    return name + " = " + dc.format(value) + "  ("+ getDisplayValue() + ")";
+  }
+
+  public static final int MODE_LINEAR = 0;
+  public static final int MODE_dB = 1;
+  public static final int MODE_NOTE = 3;
+  public static final int MODE_FREQUENCY = 2;
+  public static final int MODE_LFO_RATE = 4;
+  public static final int MODE_CUTOFF = 5;
+
+
+  final static private String [] NOTES = {"C","C#","D","D#","E","F","F#","G","G#","A","A#","B"};
+
+
+  private static String getNoteName (double v){
+    int notenum = (int) (v * 127.0);
+    return NOTES[notenum % 12] + (notenum / 12);
+  }
+
+  private static void setInternalValue (int mode, EngineParameter p, double v){
+    p.value  = v;
+
+    switch (mode){
+      case MODE_FREQUENCY: p.nvalue = Interpolation.linear(Table.T_FREQUENCY,v);break;
+      case MODE_LFO_RATE: p.nvalue = Interpolation.linear(Table.T_LFO_RATE,v);break;
+      case MODE_NOTE: p.nvalue = Interpolation.linear(Table.T_NOTE2CPS,v);break;
+      default: p.nvalue = v;
+    }
+  }
+
+  private static String getDisplayValue (int mode, double v){
+    switch(mode){
+      case MODE_dB: return dc.format( 20.0 * Math.log(v) / Math.log(10.0) ) + " dB";
+      case MODE_FREQUENCY: return dc.format( Interpolation.linear( Table.T_FREQUENCY,v ) * DSPSystem.SYSTEM_SAMPLING_RATE ) + " Hz";
+      case MODE_NOTE: return getNoteName ( v );
+      case MODE_LFO_RATE: return dc.format( Interpolation.linear( Table.T_LFO_RATE,v) * DSPSystem.SYSTEM_SAMPLING_RATE ) + " Hz";
+      case MODE_CUTOFF: return dc.format(Interpolation.linear( Table.T_CUTOFF,v) * DSPSystem.SYSTEM_SAMPLING_RATE )+ "Hz";
+      default: return ""+ dc.format( v );
+    }
+  }
+
+}

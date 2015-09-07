@@ -1,0 +1,119 @@
+package dsp.player;
+import dsp.basic.*;
+import java.util.Date;
+import java.io.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2002</p>
+ * <p>Company: Norsez Orankijanan</p>
+ * @author Norsez Orankijanan
+ * @version 1.0
+ */
+
+public class EngineConsoleThread extends Thread{
+  private BufferedReader consoleIn;
+  private String inputText;
+  static protected java.text.NumberFormat nf;
+  EngineModel model;
+  public EngineConsoleThread(EngineModel model) {
+    this.model=model;
+    consoleIn = new BufferedReader (new InputStreamReader ( System.in) );
+    nf = new java.text.DecimalFormat ("0.000");
+  }
+  public static void main(String[] args) {
+    //EngineInputThread engineInputThread1 = new EngineInputThread();
+  }
+
+
+  public void run (){
+    while (true){
+      showPrompt ();
+      try{
+        inputText = consoleIn.readLine();
+        inputText = inputText.trim().toLowerCase();
+        if (inputText.equalsIgnoreCase("exit")){
+          finishUp ();
+        }
+        else
+        if (inputText.equalsIgnoreCase("all")){
+          listParams();
+        }
+        else
+        if (inputText.startsWith("set ")){
+          inputText = inputText.substring(4);
+          int sp = inputText.indexOf(" ");
+          int idx =0; double value = 0;
+          try{
+          idx =  Integer.parseInt(inputText.substring(0,sp));
+          value =  Double.parseDouble(inputText.substring(sp+1));
+          model.setParameter(idx,value);
+          }
+          catch(java.lang.NumberFormatException ne){
+
+          }
+          catch (java.lang.StringIndexOutOfBoundsException sne){
+
+          }
+          catch (java.lang.ArrayIndexOutOfBoundsException aob){
+
+          }
+          System.out.println ( model.parameters[idx].name + " = " + value );
+        }
+
+      }
+      catch(IOException e){
+
+      }
+    }
+
+  }
+  private double getInput (){
+    try{
+      inputText = consoleIn.readLine();
+    }
+    catch(IOException e){
+      e.printStackTrace();
+    }
+    try{
+      return Double.parseDouble(inputText);
+    }
+    catch (java.lang.NumberFormatException ne){
+      return Float.NaN;
+    }
+  }
+
+  private void showPrompt (){
+    float duration = (new Date().getTime() - model.startTime) * 0.001f;
+    System.out.print ("[" + nf.format(duration) + " secs] > ");
+  }
+
+  private void finishUp (){
+    System.out.println ("Bye!");
+    System.exit(0);
+  }
+
+  /**
+   * Assume input coming in in the form of "set <index> <value>"
+   */
+  private void doSetParameter (String input){
+    input = input.trim();
+
+  }
+
+  private void listParams (){
+
+    if (model.parameters == null )
+    {
+      System.err.println ("\nNo parameters exists");
+      return;
+    }
+
+    for (int i=0; i< model.parameters.length; i++){
+      EngineParameter p = model.parameters[i];
+
+      System.out.println ("  ("+i+ ") "+ p);
+    }
+  }
+
+}

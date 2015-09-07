@@ -1,0 +1,129 @@
+package dsp.player;
+import dsp.basic.*;
+import dsp.oscillator.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2003</p>
+ * <p>Company: </p>
+ * @author unascribed
+ * @version 1.0
+ */
+
+public class Speaker {
+  private Speaker (){}
+  private static final int BUFFER_SIZE = 8196*16;
+  private static final int PUT_SIZE = 512;
+
+  public static void play (Generator gen, int numOfChannels, long milliseconds){
+    PlayThread playthread = new PlayThread (gen, numOfChannels);
+    playthread.setPlaying(true);
+    playthread.start();
+  }
+
+  static private float volume = 0.1f;
+  public static void setVolume (float i){
+     volume  = i;
+    }
+
+  static class PlayThread extends Thread {
+    private Generator gen;
+    private SoundPlayback player;
+
+    private boolean playing;
+    private int numOfChannels;
+
+    public PlayThread (Generator gen,int channels){
+      this.gen = gen;
+      this.numOfChannels = channels;
+      player = new SoundPlayback (DSPSystem.getSystemSamplingRate(),
+                                  16,channels,BUFFER_SIZE,PUT_SIZE);
+      try{
+        player.startPlayback();
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+
+    }
+
+
+
+    public void setPlaying ( boolean b){
+      playing = b;
+    }
+
+    private double [][] samples;
+
+    public void run (){
+      samples = new double [numOfChannels][PUT_SIZE];
+      boolean w = false;
+      while ( playing){
+
+        for (int i = 0; i < samples[0].length; i++){
+          for (int j=0; j < numOfChannels;j++){
+            samples[j][i] = gen.tick() * volume;
+          }
+          if (w == false){
+          //DSPSystem.saveToFile("output.csv",samples[0]);
+          w = true;
+          }
+        }
+        try{
+          player.putSamples(samples);
+        }catch (Exception e){
+          e.printStackTrace();
+        }
+      }
+    }
+
+
+  }
+
+  public static void main(String[] args) {
+
+    DSPSystem.setSystemSamplingRate(44100);
+    Tester t = new Tester ();
+    setVolume ( 0.2f);
+    Speaker.play(t,1,100);
+  }
+  /*
+  static class Tester implements Generator {
+    WavetableOscillator w = new WavetableOscillator ();
+    Lfo lfo = new Lfo ();
+    float centercps = 110.f/DSPSystem.getSystemSamplingRate()  ;
+
+    float [] notetable = Table.getMidiToCPSTable();
+
+    public Tester (){
+      lfo.setCPS(0.5f /DSPSystem.getSystemSamplingRate());
+      //lfo.setModulationOffset(-0.5f);
+
+      w.setWaveform(w.WAVE_SINE);
+    }
+
+    public float tick (){
+      //w.setCPS(centercps + ( (lfo.tick() * 0.15f)) );
+      try{
+      w.setCPS(centercps);
+      }
+      catch (ArrayIndexOutOfBoundsException e){
+        System.err.println ( lfo.getLastValue() +  " " + ((int)(lfo.tick() * (notetable.length-1))));
+      }
+
+      return w.tick();
+    }
+
+    public static float clip (float t){
+      if (t > 0.5f) return 0.5f;
+      else
+      if (t < .0004535147392f) return .0004535147392f;
+      else return t;
+    }
+
+    public float getLastValue (){
+      return 0;
+    }
+  }
+  */
+}
