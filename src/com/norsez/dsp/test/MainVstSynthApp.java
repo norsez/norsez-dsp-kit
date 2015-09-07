@@ -33,7 +33,6 @@ public class MainVstSynthApp extends JFrame {
     this.setSize(800,225);
     this.setVisible(true);
 
-
     this.addWindowListener( new WindowAdapter (){
       public void windowClosing (java.awt.event.WindowEvent e){
         if ( synth instanceof VstRainStorm )

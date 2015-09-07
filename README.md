@@ -23,6 +23,9 @@ You should be able to clone this repo and create an Eclipse project over the rep
 - `MainVstSynthApp.java` - This sample is configured with a synth that emulates a rain storm atmosphere. (I actually listened to it as I went to bed back then.) You may notice this class is very similar to MainSynthApp. It was written for use with a java->VST dll library which has since been discontinued. Anyhow, this example also demonstrates how to combine these blocks to make some noises.
 	
 	
+- Runnable samples 
+I have compiled the above two examples into two runnable jars namely, `monolith.jar` and `rainstorm.jar` respectively. You should be able to click each of them to run without building them yourself, but do it at your own risk :)
+	
 	
 
   
