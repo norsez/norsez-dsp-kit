@@ -2,7 +2,7 @@
 A DSP (Digital Signal Processing) synthesizer building blocks written entirely in Java. Use it as a kit to make your own synthesizers.
 
 ##Note
-This repo is in a state of clutter. Fork it and use it at your own risk. I'll try to reorganize it a bit for easier navigation. But no promise. :)
+This repo is in a state of clutter. Fork it and use it at your own risk. I'll try to reorganize it a bit for easier navigation. But no promises. This repo is for the sake of my own historical backup more than anything. :)
 
 ##About
 This API provides code building blocks for you to make your own DSP synthesizer in Java. Originally, I made this kit in order to experiment with synth coding as I was working on free VST synths at the time (OnkotVST, SukreepVST, etc.)  A large part of this API is based on what I learned from the music-dsp mailing list and CSound. They were massive resources of audio DSP. My thanks to contributors on music-dsp mailing list.
