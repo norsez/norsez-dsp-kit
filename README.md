@@ -32,7 +32,7 @@ You should be able to clone this repo and create an Eclipse project over the rep
 	
 ##Runnable samples
  
-I have compiled the above two examples into two runnable jars namely, `monolith.jar` and `rainstorm.jar` respectively. You should be able to click each of them to run without building them yourself, but do it at your own risk :)
+I have compiled the above two examples into two runnable jars namely, `monolith.jar` and `rainstorm.jar` respectively. If you have JDK 6 (or better) installed on your machine, you should be able to click each of them to run without building them yourself, but do it at your own risk :)
 	
 	
 
