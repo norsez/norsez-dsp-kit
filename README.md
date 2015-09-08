@@ -14,7 +14,7 @@ As noted above, this API has not been made easy for public use. It will need a l
 
 You should be able to clone this repo and create an Eclipse project over the repo root. I have two synth examples built with this dsp kit. You can run them with the `Run As` > `Java Application` menu in Eclipse.
 
-![Image of Monolith](monolith.jpg)
+![Image of Monolith](monolith.png)
 
 - `MainSynthApp.java` - This sample is configured with a monophonic subtractive synth which features 
 	- 2 osciallators 	
@@ -25,7 +25,7 @@ You should be able to clone this repo and create an Eclipse project over the rep
 	- 16 step arpeggiator
 	
 
-![Image of Rainstorm](rainstorm.jpg)
+![Image of Rainstorm](rainstorm.png)
 
 - `MainVstSynthApp.java` - This sample is configured with a synth that emulates a rain storm atmosphere. (I actually listened to it as I went to bed back then.) You may notice this class is very similar to MainSynthApp. It was written for use with a java->VST dll library which has since been discontinued. Anyhow, this example also demonstrates how to combine these blocks to make some noises.
 	
